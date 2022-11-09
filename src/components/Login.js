@@ -57,7 +57,7 @@ const handleSubmit = (e) => {
   (async () => {
       // Se modifican las opciones del fetch, añadiendo los datos del formulario
       opciones.body = JSON.stringify({ usuario, password })
-     
+     console.log({usuario})
 
       const resp = await fetch('http://localhost:3000/login', opciones)
 
@@ -66,17 +66,22 @@ const handleSubmit = (e) => {
      
 
       const data = await resp.json()
-    const {user}= data
+
+      const info = {
+        token:data.token,
+        user:usuario
+      }
    
    
       
       console.log(data.token);
+      console.log(data.usuario)
       if (data.token){
         localStorage.setItem('rstoken',data.token)
         console.log(localStorage)
         InicioSesionExitosa(data.token)
       }
-      setSession(user.usuario)
+      setSession({info})
       navigate('/home');
       
 

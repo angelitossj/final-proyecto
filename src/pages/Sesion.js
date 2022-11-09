@@ -1,19 +1,52 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import './card.css'
+import {useState} from 'react'
+import img from '../img/450_1000.jpg'
 
 function Sesion() {
+  const [mostrar,setMostrar]=useState([])
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+  
+  fetch("http://localhost:3000/usuario", requestOptions)
+    .then(response => response.json())
+    .then(result => setMostrar(result.user))
+    .catch(error => console.log('error', error));
+  
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
+   <div className='container'>
+<div className='row'>
+  <div className='col-md-6'>
+  <Card style={{ width: '480px', }}>
+      {mostrar.map((item,index)=>( <Card.Body>
+      <Card.Img variant="top" src={img} />
+        <Card.Title>{item.nombre}</Card.Title>
+        <Card.Text>{item.usuario}</Card.Text>
+        <Button variant="primary">Ir</Button>
+      </Card.Body>))}
+     
     </Card>
+  </div>
+  <div className='col-md-6'>
+  <Card style={{ width: '480px', }}>
+      {mostrar.map((item,index)=>( <Card.Body>
+      <Card.Img variant="top" src={img} />
+        <Card.Title>{item.nombre}</Card.Title>
+        <Card.Text>{item.usuario}</Card.Text>
+        <Button variant="primary">Ir</Button>
+      </Card.Body>))}
+     
+    </Card>
+  </div>
+</div>
+   </div>
   );
 }
 
