@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import img from '../img/como-ser-comerciante.jpg'
 import Login from './Login'
 import Registro from './Registro'
+import Footer from './Footer'
 const Main = () => {
 const [mostrar,setMostrar]=useState(null)
 const  muestra = ()=>setMostrar([<Login/>])
@@ -55,7 +56,7 @@ const registro = ()=>setMostrar([<Registro/>])
       </div>
     </div>
   </div>
-    
+    <Footer/>
     
     </>
   )
