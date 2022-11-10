@@ -10,18 +10,21 @@ import Reports from './pages/Reports'
 import Products from './pages/Products'
 import Page404 from './pages/Page404'
 import Sesion from './pages/Sesion';
+import NavLading from './components/NavLading'
+import RegistroCliente from './components/RegistroCliente' 
 function App() {
  //Almacena información de la sesión
  const [session, setSession] = useState(null);
   return (
   <>
   
-  <Navbar></Navbar>
+  <NavLading></NavLading>
     
  <Session.Provider value={[session,setSession]}>
  <Routes>
     <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Sesion />} />
+      <Route path="/registroCliente" element={<RegistroCliente />} />
       <Route path="/reportes" element={<Reports />} />
       <Route path="/productos" element={<Products />} />
       

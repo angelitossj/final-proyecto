@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
 import Main from '../components/Main';
-import Registro from '../components/Registro';
+import NavLading from '../components/NavLading';
 
 function Home() {
   

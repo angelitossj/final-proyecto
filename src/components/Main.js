@@ -1,12 +1,14 @@
 import React,{useState} from 'react'
 // import './product.css'
+import {NavLink} from 'react-router-dom'
 import img from '../img/como-ser-comerciante.jpg'
 import Login from './Login'
-import Registro from './Registro'
+import Registro from './RegistroProveedor'
 import Footer from './Footer'
+import RegistroCliente from './RegistroCliente'
 const Main = () => {
 const [mostrar,setMostrar]=useState(null)
-const  muestra = ()=>setMostrar([<Login/>])
+const  muestra = ()=>setMostrar(<RegistroCliente/>)
 const registro = ()=>setMostrar([<Registro/>])
       
   const consulta = async ()=>{
@@ -46,8 +48,8 @@ const registro = ()=>setMostrar([<Registro/>])
     <div className="col-lg-6 mx-auto">
       <p className="lead mb-4">Queremos Brindarle la mejor atencion posible y que pueda disfrutar de la interacion con nosotros pero para ello es necesario que Usted forme parte de nosotros y se registre a nuetra Pagina</p>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button onClick={muestra} type="submit" className="btn btn-primary btn-lg px-4 me-sm-3">Inicar Sesion</button>
-        <button type="submit" onClick={registro} className="btn btn-outline-secondary btn-lg px-4">Registrarse</button>
+        <button onClick={muestra} type="submit" className="btn btn-primary btn-lg px-4 me-sm-3">Cliente</button>
+        <button type="submit" onClick={registro} className="btn btn-outline-danger btn-lg px-4">Proveedor</button>
       </div>
     </div>
     <div className="overflow-hidden" >
