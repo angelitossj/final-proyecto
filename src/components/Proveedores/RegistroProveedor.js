@@ -15,10 +15,13 @@ const opciones={
 }
 const navigate = useNavigate();
 const [registro,setRegistro] = useState({
-  nombre:"",
-  usuario:"",
-  email:"",
-  password:""
+            nombreOrazonSocial:"",
+            cedulaIdentidad:"",
+            DomicilioEmpresa:"",
+            usuario:"",
+            telefono:"",
+            email:"",
+            password:""
 });
 const handleInput=({target})=>{
   setRegistro({
@@ -34,14 +37,14 @@ const handleSubmit= (event)=>{
 
 
 opciones.body=JSON.stringify(registro)
-const resp = await fetch('http://localhost:3000/usuario', opciones)
+const resp = await fetch('http://localhost:3000/proveedores', opciones)
 
 if(!resp.ok)alert('Revise las credenciales y vuelva a intentar')
 
 const data = await resp.json()
 
 console.log(data)
-navigate('/productos')
+navigate('/proveedor')
 
 })()
 }
@@ -59,26 +62,73 @@ navigate('/productos')
                 height="100"
                 />
             </div>
-            <h1 className="h3 mb-3 fw-normal text-center"><strong>Formulario Cliente</strong></h1>
+            <h1 className="h3 mb-3 fw-normal text-center"><strong>Formulario Proveedor</strong></h1>
           
 
 
             <div className="form-floating my-3">
               <input onChange={handleInput}
-                name="nombre"
+                name="nombreOrazonSocial"
                 
                 type="text"
-                placeholder="Nombre"
+                placeholder="Nombre/RazonSocial"
                 
                 // {...register('nombre_usuario')}
                 className={`form-control `}
 
                 
               />
-              <label htmlFor="floatingInput">Nombre</label>
+              <label htmlFor="floatingInput">Nombre/RazaSocial</label>
               <div className="invalid-feedback"></div>
             </div>
 
+            <div className="form-floating my-3">
+              <input onChange={handleInput}
+                name="cedulaIdentidad"
+                
+                type="text"
+                placeholder="Nombre/RazonSocial"
+                
+                // {...register('nombre_usuario')}
+                className={`form-control `}
+
+                
+              />
+              <label htmlFor="floatingInput">Cedula Identidad</label>
+              <div className="invalid-feedback"></div>
+            </div>
+            
+            <div className="form-floating my-3">
+              <input onChange={handleInput}
+                name="DomicilioEmpresa"
+                
+                type="text"
+                placeholder="Nombre/RazonSocial"
+                
+                // {...register('nombre_usuario')}
+                className={`form-control `}
+
+                
+              />
+              <label htmlFor="floatingInput">Direccion Empresa</label>
+              <div className="invalid-feedback"></div>
+            </div>
+
+            <div className="form-floating my-3">
+              <input onChange={handleInput}
+                name="telefono"
+                
+                type="text"
+                placeholder="Nombre/RazonSocial"
+                
+                // {...register('nombre_usuario')}
+                className={`form-control `}
+
+                
+              />
+              <label htmlFor="floatingInput">Telefono/Celular</label>
+              <div className="invalid-feedback"></div>
+            </div>
             
             <div className="form-floating my-3">
               <input onChange={handleInput}
@@ -166,7 +216,7 @@ navigate('/productos')
                 Cancelar
                 </button>
             </div>
-            <p className="mt-5 mb-3 text-center">¿Ya tienes una cuenta? <Link to="/Login">Inicia Sesión</Link></p>
+            <p className="mt-5 mb-3 text-center">¿Ya tienes una cuenta? <Link to="/proveedor">Inicia Sesión</Link></p>
             <p className="mt-5 mb-3 text-center">© 2021 - Tecnicatura en Desarrollo de Software</p>
           </form>
       </main>

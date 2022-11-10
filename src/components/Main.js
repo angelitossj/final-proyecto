@@ -2,10 +2,10 @@ import React,{useState} from 'react'
 // import './product.css'
 import {NavLink} from 'react-router-dom'
 import img from '../img/como-ser-comerciante.jpg'
-import Login from './Login'
-import Registro from './RegistroProveedor'
+import Login from './Clientes/LoginCliente'
+import Registro from './Proveedores/RegistroProveedor'
 import Footer from './Footer'
-import RegistroCliente from './RegistroCliente'
+import RegistroCliente from './Clientes/RegistroCliente'
 const Main = () => {
 const [mostrar,setMostrar]=useState(null)
 const  muestra = ()=>setMostrar(<RegistroCliente/>)

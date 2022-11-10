@@ -11,8 +11,9 @@ import Products from './pages/Products'
 import Page404 from './pages/Page404'
 import Sesion from './pages/Sesion';
 import NavLading from './components/NavLading'
-import RegistroCliente from './components/RegistroCliente' 
-import Login from './pages/Login'
+import RegistroCliente from './components/Clientes/RegistroCliente' 
+import LoginCliente from './pages/LoginCliente'
+import SesionProveedor from './pages/SesionProveedor';
 function App() {
  //Almacena información de la sesión
  const [session, setSession] = useState(null);
@@ -26,7 +27,8 @@ function App() {
     <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Sesion />} />
       <Route path="/registroCliente" element={<RegistroCliente />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/proveedor" element={<SesionProveedor />} />
+      <Route path="/cliente" element={<LoginCliente />} />
       <Route path="/reportes" element={<Reports />} />
       <Route path="/productos" element={<Products />} />
       

@@ -1,8 +1,8 @@
 import React, {useState,useContext}from 'react'
 import './login.css'
-import {Navigate, useNavigate}from 'react-router-dom'
-import {Session} from '../context/Session'
-import img from '../img/como-ser-comerciante.jpg'
+import { useNavigate}from 'react-router-dom'
+import {Session} from '../../context/Session'
+import img from '../../img/como-ser-comerciante.jpg'
 import swal from 'sweetalert'
 
 
@@ -82,7 +82,7 @@ const handleSubmit = (e) => {
         InicioSesionExitosa(data.token)
       }
       setSession({info})
-      navigate('/home');
+      // navigate('/home');
       
 
 
