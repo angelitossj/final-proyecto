@@ -12,19 +12,21 @@ import Page404 from './pages/Page404'
 import Sesion from './pages/Sesion';
 import NavLading from './components/NavLading'
 import RegistroCliente from './components/RegistroCliente' 
+import Login from './pages/Login'
 function App() {
  //Almacena información de la sesión
  const [session, setSession] = useState(null);
   return (
   <>
   
-  <NavLading></NavLading>
+  <Navbar></Navbar>
     
  <Session.Provider value={[session,setSession]}>
  <Routes>
     <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Sesion />} />
       <Route path="/registroCliente" element={<RegistroCliente />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/reportes" element={<Reports />} />
       <Route path="/productos" element={<Products />} />
       

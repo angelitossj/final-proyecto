@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import './card.css'
 import {useState} from 'react'
 import img from '../img/450_1000.jpg'
+import  Component  from '../components/Componen';
 
 function Sesion() {
   const [mostrar,setMostrar]=useState([])
@@ -21,6 +22,8 @@ function Sesion() {
     .catch(error => console.log('error', error));
   
   return (
+<>
+<Component/>
    <div className='container'>
 <div className='row'>
   <div className='col-md-6'>
@@ -46,7 +49,7 @@ function Sesion() {
     </Card>
   </div>
 </div>
-   </div>
+   </div></>
   );
 }
 
