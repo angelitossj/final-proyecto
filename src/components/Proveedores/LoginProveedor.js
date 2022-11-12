@@ -8,8 +8,10 @@ import swal from 'sweetalert'
 
 
 const Login = () => {
+  const [state,setState] = useContext(Session)
   const navigate = useNavigate();
-
+//Getter y Setter de la sesión
+const user = useContext(Session);
   const InicioSesionExitosa=(token)=>{
     swal({
       title:'Inicio de Sesión Exitosa',
@@ -35,15 +37,12 @@ const Login = () => {
    
     //Método para la redirección
   
-  const [estado,setEstado]= useState({
-    usuario:"",
-    password:""
-  });
 
-  const {usuario,password}=estado
+
+  const {usuario,password}=state
   const handleInput = ({ target }) => {
-    setEstado({
-        ...estado,
+    setState({
+        ...state,
         [target.name]: target.value
       })
       console.log(target.value)
@@ -81,8 +80,8 @@ const handleSubmit = (e) => {
         console.log(localStorage)
         InicioSesionExitosa(data.token)
       }
-      setSession({info})
-      // navigate('/home');
+      setState({info})
+      navigate('/productos');
       
 
 
@@ -99,8 +98,7 @@ const handleSubmit = (e) => {
 };
 
 
- //Getter y Setter de la sesión
- const [session, setSession] = useContext(Session);
+ 
   return (
     <>
     <main className="form-signin w-100 m-auto">

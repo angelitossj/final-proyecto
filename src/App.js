@@ -2,7 +2,7 @@
 import {useState}from 'react'
 import {Routes,Route} from 'react-router-dom'
 import './App.css';
-import Navbar from './components/layout/Navbar'
+
 import Home from './pages/Home'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Session} from './context/Session'
@@ -14,15 +14,16 @@ import NavLading from './components/NavLading'
 import RegistroCliente from './components/Clientes/RegistroCliente' 
 import LoginCliente from './pages/LoginCliente'
 import SesionProveedor from './pages/SesionProveedor';
+import PagesCliente from './pages/PagesCliente';
 function App() {
  //Almacena información de la sesión
- const [session, setSession] = useState(null);
+ const [session, setSession] = useState(Session);
   return (
   <>
   
-  <Navbar></Navbar>
     
  <Session.Provider value={[session,setSession]}>
+ 
  <Routes>
     <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Sesion />} />
@@ -30,6 +31,8 @@ function App() {
       <Route path="/proveedor" element={<SesionProveedor />} />
       <Route path="/cliente" element={<LoginCliente />} />
       <Route path="/reportes" element={<Reports />} />
+      <Route path="/clientes" element={<PagesCliente />} />
+
       <Route path="/productos" element={<Products />} />
       
       <Route path = "*" element = {<Page404/>}/>

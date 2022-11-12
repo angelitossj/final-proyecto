@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import Tabla from '../components/Tabla';
 import Button from 'react-bootstrap/Button';
 import Sidebar from '../components/Sidebar';
+import CardClient from '../components/CardCliente'
 function Products() {
   const [reports, setReports] = useState(false);
 const handleToggle= () =>setReports([<Tabla key='mitablaProductos'/>])
@@ -14,6 +15,7 @@ const handleToggleClose= () =>setReports()
 <>
 <div className='products'>
 <Sidebar/>
+<CardClient/>
       {/* {reports} */}
 
 {/* <button onClick={() => setReports(reports + 1)}>Add Report</button> */}
