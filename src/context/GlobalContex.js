@@ -5,11 +5,11 @@ import swal from 'sweetalert'
 
 const initialState=[{ usuario:"",
 password:""}]
-export const Sessions =createContext(initialState)
+ const [state,setState] =createContext(initialState)
 
 export const ContextProvider=({children})=>{
 
-const [state,setState]=useState(initialState)
+
 const navigate = useNavigate();
 
 const InicioSesionExitosa=(token)=>{
@@ -75,11 +75,16 @@ e.preventDefault();
     console.log(data.usuario)
     if (data.token){
       localStorage.setItem('rstoken',data.token)
-      console.log(localStorage)
+      // console.log(localStorage)
+      //almacena la informacion de la sesion en el LocalStorage
+      
       InicioSesionExitosa(data.token)
     }
     setState({info})
-    navigate('/home');
+    if(data.token){
+
+      navigate('/home');
+    }
     
 
 

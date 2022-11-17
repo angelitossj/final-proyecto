@@ -19,6 +19,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
+    z-index: 2;
     top: 0;
     left: -100%;
     transition: 850ms;
@@ -70,4 +71,13 @@
   span {
     margin-left: 16px;
   }
-  
+
+  @media  (min-width: 768px) {
+    .nav-menu-items{
+      margin-top: 3rem;
+    }
+    .nav-menu-items >.navbar-toggle{
+      
+      display: none !important;
+    }
+  }

@@ -15,6 +15,7 @@ import RegistroCliente from './components/Clientes/RegistroCliente'
 import LoginCliente from './pages/LoginCliente'
 import SesionProveedor from './pages/SesionProveedor';
 import PagesCliente from './pages/PagesCliente';
+
 function App() {
  //Almacena información de la sesión
  const [session, setSession] = useState(Session);
@@ -30,6 +31,7 @@ function App() {
       <Route path="/registroCliente" element={<RegistroCliente />} />
       <Route path="/proveedor" element={<SesionProveedor />} />
       <Route path="/cliente" element={<LoginCliente />} />
+
       <Route path="/reportes" element={<Reports />} />
       <Route path="/clientes" element={<PagesCliente />} />
 

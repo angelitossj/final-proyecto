@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 import Tabla from '../components/Tabla';
 import Button from 'react-bootstrap/Button';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/layout/Navbar';
 import CardClient from '../components/CardCliente'
 function Products() {
   const [reports, setReports] = useState(false);
