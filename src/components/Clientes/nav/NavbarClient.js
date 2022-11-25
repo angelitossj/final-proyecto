@@ -3,9 +3,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Navbar.css';
+import './NavbarClient.css';
 import { IconContext } from 'react-icons';
-import { Session } from '../../context/Session'
+import { Session } from '../../../context/Session'
 function Navbar() {
   const [sidebar, setSidebar] = useState(Session);
 
@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar navbar-proveedor'>
+        <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>

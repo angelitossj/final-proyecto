@@ -58,7 +58,7 @@ const handleSubmit = (e) => {
       opciones.body = JSON.stringify({ usuario, password })
      console.log({usuario})
 
-      const resp = await fetch('http://localhost:3000/sesion', opciones)
+      const resp = await fetch('http://localhost:3000/login', opciones)
 
       // Si el ok es false, significa que se produjo un error en la petición
       if (!resp.ok) alert('Revise las credenciales y vuelva a intentarlo');

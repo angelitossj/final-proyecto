@@ -71,13 +71,3 @@
   span {
     margin-left: 16px;
   }
-
-  @media  (min-width: 768px) {
-    .navbar-proveedor.nav-menu-items{
-      margin-top: 3rem;
-    }
-    .navbar-proveedor.nav-menu-items >.navbar-toggle{
-      
-      display: none !important;
-    }
-  }

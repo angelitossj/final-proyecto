@@ -15,6 +15,7 @@ import RegistroCliente from './components/Clientes/RegistroCliente'
 import LoginCliente from './pages/LoginCliente'
 import SesionProveedor from './pages/SesionProveedor';
 import PagesCliente from './pages/PagesCliente';
+import ProductosProveedores from './pages/ProductosProveedores';
 
 function App() {
  //Almacena información de la sesión
@@ -36,7 +37,7 @@ function App() {
       <Route path="/clientes" element={<PagesCliente />} />
 
       <Route path="/productos" element={<Products />} />
-      
+      <Route path="/mensaje" element={<ProductosProveedores />} />
       <Route path = "*" element = {<Page404/>}/>
     </Routes>
 
