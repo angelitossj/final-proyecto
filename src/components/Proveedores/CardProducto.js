@@ -34,9 +34,9 @@ function BasicExample() {
               <Card className=''>
                 <Card.Title className='text-center'>Producto</Card.Title>
                 <div className='container py-3 px-4'>
-                  <Card.Img variant="top" src='' />
+                  <Card.Img variant="top" src={item.imagen}/>
                   <Card.Body>
-
+               
                     <Card.Title>{item.nombreProducto}</Card.Title>
                     <Card.Text>
                       {"Marca : " + item.marca}
