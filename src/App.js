@@ -16,6 +16,7 @@ import LoginCliente from './pages/LoginCliente'
 import SesionProveedor from './pages/SesionProveedor';
 import PagesCliente from './pages/PagesCliente';
 import ProductosProveedores from './pages/ProductosProveedores';
+import HomeClientes from './pages/Clientes/HomeClientes';
 
 function App() {
  //Almacena información de la sesión
@@ -32,7 +33,7 @@ function App() {
       <Route path="/registroCliente" element={<RegistroCliente />} />
       <Route path="/proveedor" element={<SesionProveedor />} />
       <Route path="/cliente" element={<LoginCliente />} />
-
+      <Route path="/homeCliente" element={<HomeClientes />} />
       <Route path="/reportes" element={<Reports />} />
       <Route path="/clientes" element={<PagesCliente />} />
 

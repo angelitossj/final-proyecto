@@ -1,12 +1,12 @@
 import React from 'react'
-import LoginProveedor from '../components/Proveedores/LoginProveedor'
-const InicioSesion = () => {
+import FormProveedor from '../components/Proveedores/FormProveedor'
+const LoginProveedor = () => {
   return (
     <>
-    <LoginProveedor></LoginProveedor>
+    <FormProveedor></FormProveedor>
     
     </>
   )
 }
 
-export default InicioSesion
+export default LoginProveedor

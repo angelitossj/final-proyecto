@@ -58,7 +58,7 @@ const registro = ()=>setMostrar([<Registro/>])
       </div>
     </div>
   </div>
-    <Footer/>
+   
     
     </>
   )

@@ -60,7 +60,7 @@ const handleSubmit = (e) => {
       opciones.body = JSON.stringify({ usuario, password })
      console.log({usuario})
 
-      const resp = await fetch('http://localhost:3000/sesionCliente', opciones)
+      const resp = await fetch('http://localhost:3000/log', opciones)
 
       // Si el ok es false, significa que se produjo un error en la petición
       if (!resp.ok) alert('Revise las credenciales y vuelva a intentarlo');
@@ -81,7 +81,7 @@ const handleSubmit = (e) => {
         localStorage.setItem('rstoken',data.token)
         console.log(localStorage)
         InicioSesionExitosa(data.token)
-        navigate('/clientes');
+        navigate('/homeCliente');
       }
       setState({info})
       

@@ -1,9 +1,9 @@
 import React from 'react'
-import LoginCliente from '../components/Clientes/LoginCliente'
+import FormLogin from '../components/Clientes/FormLogin'
 const InicioSesion = () => {
   return (
     <>
-    <LoginCliente></LoginCliente>
+    <FormLogin></FormLogin>
     
     </>
   )

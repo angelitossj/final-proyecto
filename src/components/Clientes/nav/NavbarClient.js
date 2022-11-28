@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,9 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
+       
         <div className='navbar'>
+          
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -36,7 +38,13 @@ function Navbar() {
                 </li>
               );
             })}
+             <div className="text-end">
+                  <button onClick={()=>{setSidebar(null)}} type="button" className="cerrarsesion btn btn-danger">
+                    Cerrar Sesion
+                  </button>
+                </div>
           </ul>
+          
         </nav>
       </IconContext.Provider>
     </>

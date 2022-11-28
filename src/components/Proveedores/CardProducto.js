@@ -16,7 +16,7 @@ function BasicExample() {
 
     const peticion = await fetch("http://localhost:3000/productos", requestOptions)
     const respuesta = await peticion.json()
-    
+    console.log(respuesta)
     setMostrar(respuesta?.producto ?? [])
     
   }
