@@ -51,7 +51,7 @@ const Footer = () => {
                   </div>
                   <div className="col-6">
                     <Link to="#">
-                      <img src={metodo3} alt="" clclassNameass="img-fluid" />
+                      <img src={metodo3} alt="" className="img-fluid" />
                     </Link>
                     <Link to="#">
                       <img src={metodo4} alt="" className="img-fluid" />

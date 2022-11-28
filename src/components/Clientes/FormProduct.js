@@ -3,9 +3,11 @@ import Form from 'react-bootstrap/Form';
 import {NavLink} from 'react-router-dom'
 import {useState,useEffect} from 'react'
 
+import Card from 'react-bootstrap/Card';
+
 function FormProduct() {
     const [mostrar, setMostrar] = useState([])
-  
+    
   const handleInput = ({ target }) => {
     
       
@@ -16,12 +18,14 @@ function FormProduct() {
         
       
 };
-  const consulta = async ({ target }) => {
-    setMostrar({
-        ...mostrar,
-        [target.name]: target.value
-      })
+  const consulta = async ({target}) => {
+    // setMostrar({
+    //     ...mostrar,
+    //     [target.name]: target.value
+    //   })
+
     const id =target.value
+    console.log(id)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
@@ -35,11 +39,12 @@ function FormProduct() {
     console.log(respuesta)
     setMostrar(respuesta?.producto ?? [])
 
- 
+
     
-   
+    
 
   }
+
 
 
 
@@ -50,11 +55,11 @@ function FormProduct() {
 
   return (
   <>
-    <Form onClick={consulta}>
+    <Form  >
     <Form.Label>Ingrese un producto Deseado</Form.Label>
-    <Form.Select onChange={handleInput} aria-label="Default select example">
-      <option name='select' >seleccione una categoria</option>
-      <option value="Bebidas">{<NavLink to='/productos'>Bebidas</NavLink>}</option>
+    <Form.Select  name='select' onChange={handleInput} aria-label="Default select example">
+      <option >seleccione una categoria</option>
+      <option value="Bebidas">Bebidas</option>
       <option value="Lacteos">Lacteos</option>
       <option value="Panificado">Panificados</option>
       <option value="Carnicos">Carnicos</option>
@@ -66,11 +71,30 @@ function FormProduct() {
       
    
     
-      <Button variant="primary" type="button">
+      <Button onClick={consulta} variant="primary" type="submit" >
         Submit
       </Button>
     </Form>
-    <div className='div'></div>
+    
+{
+
+  (mostrar.length < 1)
+  ? (
+    <p>Loading...</p>
+  )
+  : (
+    mostrar.map( (product) => (
+      <div 
+      key={product._id}
+      className="card">
+        <div className='card-title'>
+          {  product.nombreProducto}
+        </div>
+      </div>
+    ))
+  )
+
+}
   </>
     
   );

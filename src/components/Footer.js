@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import metodo1 from "../asset/metodo1.png";
-import metodo2 from "../asset/metodo2.png";
-import metodo3 from "../asset/metodo3.png";
-import metodo4 from "../asset/metodo4.png";
+import metodo1 from "../assets/metodo1.png";
+import metodo2 from "../assets/metodo2.png";
+import metodo3 from "../assets/metodo3.png";
+import metodo4 from "../assets/metodo4.png";
 
 const Footer = () => {
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
                   </div>
                   <div className="col-6">
                     <Link to="#">
-                      <img src={metodo3} alt="" clclassNameass="img-fluid" />
+                      <img src={metodo3} alt="" className="img-fluid" />
                     </Link>
                     <Link to="#">
                       <img src={metodo4} alt="" className="img-fluid" />
