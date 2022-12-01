@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import NavBar2 from "../components/NavBar2";
 import Footer from "../components/Footer";
 
@@ -7,126 +7,47 @@ import swal from "sweetalert";
 
 const Pedidos = () => {
   const [cart, setCart] = useState([]);
-  const [products] = useState([
-    {
-      id: 1,
-      name: "Coca Cola 3ltrs",
-      price: 200,
-      url: "https://supertiendascomunal.com/3244-thickbox_default/coca-cola-3-litros.jpg",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Hamburguesa Completa",
-      price: 150,
-      url: "https://betos.com.ar/wp-content/uploads/2019/12/hambur-doble.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      name: "Cerveza Quilmes",
-      price: 180,
-      url: "https://lh3.googleusercontent.com/proxy/elAJKOU2U13LOWz3OEXDVhmkNM6QBFpInofeBcvetvv-J1KoSIRZz1RMOqdZq8KuawuYtPFL46reLICECTpBj2B5x9mHCIPp016Fpwlut_pdOqjKhD8VaYXPO9k",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 4,
-      name: "Pizza Napolitana",
-      price: 280,
-      url: "https://betos.com.ar/wp-content/uploads/2019/08/pizza-napo.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 5,
-      name: "Fanta 3ltrs",
-      price: 140,
-      url: "https://i1.wp.com/www.casagamovi.cl/wp-content/uploads/2020/07/fanta-3-litros.png?fit=1000%2C1000&ssl=1",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 6,
-      name: "Empanada de Carne docena",
-      price: 260,
-      url: "https://mambofoods.com/wp-content/uploads/2020/01/Empanada-arg-beef-1000-877x992.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 7,
-      name: "Sandwich de Miga docena",
-      price: 200,
-      url: "https://costumbres.com.ar/wp-content/uploads/2017/06/sandwich-miga.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 8,
-      name: "Sandwich de Milanesa",
-      price: 180,
-      url: "https://juliana-delivery.com.ar/uploads/products/detail_products_7576.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 9,
-      name: "Plato de ñouis",
-      price: 150,
-      url: "https://viandasrisa.com.ar/wp-content/uploads/noquis-rellenos-con-fileto.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 10,
-      name: "Sprite 3ltrs",
-      price: 200,
-      url: "https://images.jumpseller.com/store/mgdrinks/6511848/sprite_pet_3.png?1626883544",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 11,
-      name: "Coca,Sprite,Fanta 330ml cada uno",
-      price: 80,
-      url: "https://i.pinimg.com/originals/99/a6/1c/99a61c4ff202d10d53a0e19404700008.png",
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 12,
-      name: "Helado 3ltrs",
-      price: 400,
-      url: "https://www.scdelsur.com.ar/img/upload/2019/07/producto/miniatura_5d370739e669d.png",
-      cart: false,
-      quantity: 1,
-    },
-  ]);
+  const [products,setProduct] = useState([])
+  const consulta = async () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    const peticion = await fetch("http://localhost:3000/product", requestOptions)
+    const respuesta = await peticion.json()
+    console.log(respuesta)
+    setProduct(respuesta?.producto ?? [])
+    console.log(products)
+    
+  }
+
   function addtocart(item) {
     let cart2 = [...cart];
     cart2.push({ ...item });
     products.map((product) => {
-      if (product.id === item.id) {
+      if (product._id === item._id) {
         product.cart = true;
+        console.log(product)
       }
     });
     setCart(cart2);
   }
   function removetocart(item) {
-    let cart2 = cart.filter((product) => product.id !== item.id);
-    products.map((product) => {
-      if (product.id === item.id) {
-        product.cart = false;
+    let cart2 = cart.filter((i) => i._id !== item._id);
+    products.map((i) => {
+      if (i._id === item._id) {
+        i.cart = false;
       }
     });
     setCart(cart2);
   }
   function increase(item) {
     let x = cart.map((i) => {
-      if (item.id === i.id) {
+      if (item._id === i._id) {
         console.log("hola");
         i.quantity += 1;
       }
@@ -136,7 +57,7 @@ const Pedidos = () => {
   }
   function decrease(item) {
     let x = cart.map((i) => {
-      if (item.id === i.id && i.quantity > 1) {
+      if (item._id === i._id && i.quantity > 1) {
         console.log("hola");
         i.quantity -= 1;
       }
@@ -191,6 +112,9 @@ const Pedidos = () => {
     document.getElementById("formTarjeta").reset();
   };
 
+    useEffect(() => {
+    consulta()
+    }, [])
 
 
   return (
@@ -366,20 +290,21 @@ const Pedidos = () => {
           {products.map((item) => (
             <div className="col-3" key={item.id}>
               <div className="card">
-                <img alt="" src={item.url} className="card-img-top" />
+                <img alt="" src={item.imagen} className="card-img-top img-height" />
                 <div className="card-body">
                   <h6 className="card-title">
-                    {item.name} - $ {item.price}
+                    {item.nombreProducto} - $ {item.precioUnitario}
                   </h6>
-                  {item.cart === false && (
-                    <button
+                 
+                    {item.cart !== true && <button
                       className="btn btn-primary"
                       onClick={() => addtocart(item)}
+                      
                     >
                       Add to cart
-                    </button>
-                  )}
-                  {item.cart === true && (
+                    </button>}
+                  
+                  {item.cart===true && (
                     <button
                       className="btn btn-success"
                       onClick={() => addtocart(item)}
@@ -410,10 +335,10 @@ const Pedidos = () => {
                 <tr key={i.id}>
                   <th scope="row">{index + 1}</th>
                   <th scope="row">
-                    <img alt="" src={i.url} style={{ width: "4rem" }} />
+                    <img alt="" src={i.imagen} style={{ width: "4rem" }} />
                   </th>
-                  <td>{i.name}</td>
-                  <td>{i.price}</td>
+                  <td>{i.nombreProducto}</td>
+                  <td>{i.precioUnitario}</td>
                   <td>
                     <button
                       onClick={() => decrease(i)}

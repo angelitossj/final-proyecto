@@ -17,7 +17,7 @@ import SesionProveedor from './pages/SesionProveedor';
 import PagesCliente from './pages/PagesCliente';
 import ProductosProveedores from './pages/ProductosProveedores';
 import HomeClientes from './pages/Clientes/HomeClientes';
-import Pedidos from './pages/Pedidos';
+import Pedidos from './pages/Pedi';
 
 function App() {
  //Almacena información de la sesión

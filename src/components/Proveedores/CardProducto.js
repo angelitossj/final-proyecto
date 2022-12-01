@@ -45,7 +45,7 @@ function BasicExample() {
                     </Card.Text>
                     <Card.Text>
                       
-                      {"Categoria : "+item.categoria}
+                      {"Categoria : "+item.nombreProducto}
 
                     </Card.Text>
                     <Card.Text>
