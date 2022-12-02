@@ -48,20 +48,21 @@ const Pedidos = () => {
   function increase(item) {
     let x = cart.map((i) => {
       if (item._id === i._id) {
-        console.log("hola");
-        i.quantity += 1;
+       
+        i = 1;
       }
-      return i;
+     
+      return i ;
     });
     setCart(x);
   }
   function decrease(item) {
     let x = cart.map((i) => {
-      if (item._id === i._id && i.quantity > 1) {
-        console.log("hola");
-        i.quantity -= 1;
+      if (item._id === i._id && i._id > 1) {
+        
+        i._id =  1;
       }
-      return i;
+      return i ;
     });
     setCart(x);
   }
@@ -301,7 +302,7 @@ const Pedidos = () => {
                       onClick={() => addtocart(item)}
                       
                     >
-                      Add to cart
+                      Agregar a la lista
                     </button>}
                   
                   {item.cart===true && (
@@ -309,7 +310,7 @@ const Pedidos = () => {
                       className="btn btn-success"
                       onClick={() => addtocart(item)}
                     >
-                      Added
+                      Agregar Otro
                     </button>
                   )}
                 </div>
@@ -348,7 +349,7 @@ const Pedidos = () => {
                     </button>
                     {i.quantity}
                     <button
-                      onClick={() => increase(i)}
+                      onClick={() => increase(i + 1)}
                       className="btn btn-primary btn-sm"
                       size="sm"
                     >
