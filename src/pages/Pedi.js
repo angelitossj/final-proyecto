@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState,useContext } from "react";
 import NavBar2 from "../components/NavBar2";
 import Footer from "../components/Footer";
 
@@ -6,8 +6,10 @@ import img from "../assets/logo2.png";
 import swal from "sweetalert";
 
 const Pedidos = () => {
+  
   const [cart, setCart] = useState([]);
   const [products,setProduct] = useState([])
+
   const consulta = async () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -31,7 +33,9 @@ const Pedidos = () => {
     products.map((product) => {
       if (product._id === item._id) {
         product.cart = true;
-        console.log(product)
+        
+        console.log(cart)
+        
       }
     });
     setCart(cart2);
